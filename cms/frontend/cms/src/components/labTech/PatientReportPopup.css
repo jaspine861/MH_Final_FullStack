@@ -1,0 +1,313 @@
+.patient-report-popup-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+}
+
+
+/* Popup */
+
+.patient-report-popup {
+    width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    padding: 25px;
+
+    box-sizing: border-box;
+}
+
+
+/* Header */
+
+.patient-report-popup-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.patient-report-popup-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+
+    color: #333;
+}
+
+.patient-report-popup-close {
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    color: #777;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+.patient-report-popup-close:hover {
+    color: #a00000;
+}
+
+
+/* Report Information */
+
+.patient-report-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.patient-report-info-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.patient-report-info-item label {
+    font-size: 12px;
+
+    color: #888;
+
+    font-weight: 500;
+}
+
+.patient-report-info-item span {
+    font-size: 14px;
+
+    color: #333;
+
+    font-weight: 500;
+}
+
+
+/* Status */
+
+.popup-report-status {
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px !important;
+
+    font-weight: 500 !important;
+}
+
+.popup-report-status.completed {
+    background: #d1e7dd;
+
+    color: #0f5132;
+}
+
+.popup-report-status.under-review {
+    background: #fff3cd;
+
+    color: #856404;
+}
+
+
+/* Results */
+
+.patient-report-results {
+    margin-top: 10px;
+
+    margin-bottom: 25px;
+}
+
+.patient-report-results h3,
+.patient-report-technician-notes h3 {
+    margin: 0 0 12px 0;
+
+    font-size: 15px;
+
+    color: #333;
+}
+
+
+/* Result List */
+
+.patient-report-results-list {
+    border: 1px solid #eee;
+
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.patient-report-result-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 15px;
+
+    border-bottom: 1px solid #eee;
+
+    gap: 20px;
+}
+
+.patient-report-result-row:last-child {
+    border-bottom: none;
+}
+
+.result-parameter {
+    font-size: 13px;
+
+    color: #555;
+}
+
+.result-value {
+    font-size: 14px;
+
+    color: #333;
+
+    font-weight: 600;
+
+    text-align: right;
+}
+
+
+/* No Results */
+
+.no-results {
+    margin: 0;
+
+    padding: 15px;
+
+    border: 1px solid #eee;
+
+    border-radius: 6px;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* Technician Notes */
+
+.technician-notes-box {
+    min-height: 80px;
+
+    padding: 12px 15px;
+
+    background: #fafafa;
+
+    border: 1px solid #eee;
+
+    border-radius: 6px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    white-space: pre-wrap;
+}
+
+
+/* Footer */
+
+.patient-report-popup-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #eee;
+}
+
+.patient-report-close-button {
+    padding: 8px 18px;
+
+    border: 1px solid #a00000;
+
+    border-radius: 4px;
+
+    background: white;
+
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.patient-report-close-button:hover {
+    background: #a00000;
+
+    color: white;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .patient-report-popup {
+        width: 90%;
+
+        padding: 20px;
+    }
+
+    .patient-report-info {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-report-result-row {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 5px;
+    }
+
+    .result-value {
+        text-align: left;
+    }
+}

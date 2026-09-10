@@ -1,0 +1,313 @@
+.staff-section {
+    margin-top: 25px;
+}
+
+
+/* =========================
+   TOP CONTROLS
+   ========================= */
+
+.staff-controls {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   ADD STAFF BUTTON
+   ========================= */
+
+.add-staff-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    background: white;
+    color: #a00000;
+
+    border: 1px solid #a00000;
+    border-radius: 5px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.add-staff-button span {
+    font-size: 20px;
+    line-height: 14px;
+}
+
+.add-staff-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   SEARCH
+   ========================= */
+
+.staff-search-container {
+    width: 280px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+}
+
+.staff-search-container:focus-within {
+    border-color: #a00000;
+}
+
+.staff-search-icon {
+    font-size: 20px;
+    color: #777;
+
+    margin-right: 8px;
+}
+
+.staff-search-container input {
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+.staff-search-container input::placeholder {
+    color: #999;
+}
+
+
+/* =========================
+   TABLE
+   ========================= */
+
+.staff-table-container {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.staff-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.staff-table-container th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+.staff-table-container td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+.staff-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
+
+.staff-status {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.staff-status.active {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.staff-status.on-leave {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+
+.staff-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Common button styling */
+
+.edit-button,
+.deactivate-button,
+.activate-button {
+    height: 32px;
+    min-width: 80px;
+
+    padding: 0 14px;
+    margin: 0;
+
+    box-sizing: border-box;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+    border: 1px solid #a00000;
+
+    background: white;
+    color: #a00000;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: normal;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* =========================
+   EDIT
+   ========================= */
+
+.edit-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   DEACTIVATE
+   ========================= */
+
+.deactivate-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   ACTIVATE
+   ========================= */
+
+.activate-button {
+    border-color: #198754;
+    color: #198754;
+}
+
+.activate-button:hover {
+    background: #198754;
+    color: white;
+}
+
+
+/* =========================
+   DELETE
+   ========================= */
+
+.delete-button {
+    height: 32px;
+    min-width: 80px;
+
+    padding: 0 14px;
+    margin: 0;
+
+    box-sizing: border-box;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #a00000;
+    border-radius: 4px;
+
+    background: white;
+    color: #a00000;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.delete-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   NO STAFF
+   ========================= */
+
+.no-staff {
+    text-align: center;
+
+    padding: 25px !important;
+
+    color: #777 !important;
+}
+
+.edit-button {
+    min-width: 104px;
+    padding: 0 14px;
+}

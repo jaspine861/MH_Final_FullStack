@@ -1,0 +1,279 @@
+/* Overlay */
+.edit-patient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+}
+
+
+/* Popup */
+.edit-patient-popup {
+    width: 700px;
+    max-width: 90%;
+
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 25px 30px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Header */
+.edit-patient-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    border-bottom: 1px solid #eeeeee;
+
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.edit-patient-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 600;
+
+    color: #333333;
+}
+
+.edit-patient-header p {
+    margin: 6px 0 0;
+
+    font-size: 13px;
+
+    color: #777777;
+}
+
+
+/* Close button */
+.edit-patient-close {
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    color: #777777;
+
+    cursor: pointer;
+}
+
+.edit-patient-close:hover {
+    color: #a00000;
+}
+
+
+/* Form */
+.edit-patient-form {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px 25px;
+}
+
+
+/* Form group */
+.edit-form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.edit-form-group.full-width {
+    grid-column: span 2;
+}
+
+
+/* Labels */
+.edit-form-group label {
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #555555;
+}
+
+
+/* Inputs */
+.edit-form-group input,
+.edit-form-group select,
+.edit-form-group textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid #d5d5d5;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    color: #333333;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+
+    outline: none;
+
+    font-family: inherit;
+}
+
+
+/* Focus */
+.edit-form-group input:focus,
+.edit-form-group select:focus,
+.edit-form-group textarea:focus {
+    border-color: #a00000;
+
+    box-shadow: 0 0 0 2px rgba(160, 0, 0, 0.08);
+}
+
+
+/* Textarea */
+.edit-form-group textarea {
+    resize: vertical;
+
+    min-height: 80px;
+}
+
+
+/* Actions */
+.edit-patient-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    border-top: 1px solid #eeeeee;
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+}
+
+
+/* Action buttons */
+.edit-patient-actions button {
+    padding: 9px 18px;
+
+    border-radius: 5px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+/* Cancel */
+.edit-cancel-button {
+    background: #ffffff;
+
+    border: 1px solid #777777;
+
+    color: #555555;
+}
+
+.edit-cancel-button:hover {
+    background: #777777;
+
+    color: #ffffff;
+}
+
+
+/* Save */
+.edit-save-button {
+    background: #a00000;
+
+    border: 1px solid #a00000;
+
+    color: #ffffff;
+}
+
+.edit-save-button:hover {
+    background: #7d0000;
+
+    border-color: #7d0000;
+}
+
+
+/* Disabled */
+.edit-patient-actions button:disabled,
+.edit-patient-close:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* Scrollbar */
+.edit-patient-popup::-webkit-scrollbar {
+    width: 7px;
+}
+
+.edit-patient-popup::-webkit-scrollbar-thumb {
+    background: #cccccc;
+
+    border-radius: 10px;
+}
+
+.edit-patient-popup::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+
+/* Mobile */
+@media (max-width: 650px) {
+
+    .edit-patient-popup {
+        width: 95%;
+
+        padding: 20px;
+    }
+
+    .edit-patient-form {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .edit-patient-actions {
+        flex-direction: column;
+    }
+
+    .edit-patient-actions button {
+        width: 100%;
+    }
+}

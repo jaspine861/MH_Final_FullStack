@@ -1,0 +1,286 @@
+.doctor-section {
+    margin-top: 25px;
+}
+
+
+/* =========================
+   TOP CONTROLS
+   ========================= */
+
+.doctor-controls {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   ADD DOCTOR BUTTON
+   ========================= */
+
+.add-doctor-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    background: white;
+    color: #a00000;
+
+    border: 1px solid #a00000;
+    border-radius: 5px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.add-doctor-button span {
+    font-size: 20px;
+    line-height: 14px;
+}
+
+.add-doctor-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   SEARCH
+   ========================= */
+
+.doctor-search-container {
+    width: 280px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+}
+
+.doctor-search-container:focus-within {
+    border-color: #a00000;
+}
+
+.doctor-search-icon {
+    font-size: 20px;
+    color: #777;
+
+    margin-right: 8px;
+}
+
+.doctor-search-container input {
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+.doctor-search-container input::placeholder {
+    color: #999;
+}
+
+
+/* =========================
+   TABLE
+   ========================= */
+
+.doctor-table-container {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.doctor-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.doctor-table-container th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+.doctor-table-container td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+.doctor-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   STATUS
+   ========================= */
+
+.doctor-status {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* Active Status */
+
+.doctor-status.active {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+
+/* On Leave Status */
+
+.doctor-status.on-leave {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* Inactive Status */
+
+.doctor-status.inactive {
+    background: #f8d7da;
+    color: #842029;
+}
+
+
+/* =========================
+   ACTION BUTTONS
+   ========================= */
+
+.doctor-action-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* =========================
+   EDIT BUTTON
+   ========================= */
+
+.edit-doctor-button {
+    padding: 7px 14px;
+
+    border: 1px solid #a00000;
+    border-radius: 4px;
+
+    background: white;
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.edit-doctor-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   DEACTIVATE BUTTON
+   ========================= */
+
+.delete-doctor-button {
+    padding: 7px 14px;
+
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+
+    background: #f8d7da;
+    color: #b02a37;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.delete-doctor-button:hover {
+    background: #dc3545;
+    color: white;
+}
+
+
+/* =========================
+   ACTIVATE BUTTON
+   ========================= */
+
+.delete-doctor-button.activate {
+    border: 1px solid #198754;
+
+    background: #d1e7dd;
+    color: #146c43;
+}
+
+.delete-doctor-button.activate:hover {
+    background: #198754;
+    color: white;
+}
+
+
+/* =========================
+   NO DOCTORS
+   ========================= */
+
+.no-doctors {
+    text-align: center;
+
+    padding: 25px !important;
+
+    color: #777 !important;
+}

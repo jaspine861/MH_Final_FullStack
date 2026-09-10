@@ -1,0 +1,53 @@
+.receptionist-layout {
+    min-height: 100vh;
+    background-color: #f7f8fa;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.receptionist-fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.receptionist-fixed-sidebar {
+    position: fixed;
+    top: 70px;
+    left: 0;
+
+    width: 240px;
+    height: calc(100vh - 70px);
+
+    overflow-y: auto;
+
+    z-index: 900;
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.receptionist-main-content {
+    margin-left: 240px;
+
+    padding: 95px 25px 25px 25px;
+
+    min-height: 100vh;
+    width: calc(100% - 240px);
+
+    box-sizing: border-box;
+}

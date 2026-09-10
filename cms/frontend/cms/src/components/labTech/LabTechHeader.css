@@ -1,0 +1,100 @@
+.lab-tech-header {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    background: white;
+
+    border-bottom: 1px solid #eee;
+
+    box-sizing: border-box;
+}
+
+
+/* Left */
+
+.lab-tech-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lab-tech-hospital-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.lab-tech-header-left h2 {
+    margin: 0;
+
+    font-size: 20px;
+    color: #a00000;
+}
+
+
+/* Right */
+
+.lab-tech-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* Logout */
+
+.lab-tech-logout-button {
+    background: none;
+    border: none;
+
+    color: #a00000;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    padding: 8px 5px;
+
+    transition: 0.2s;
+}
+
+.lab-tech-logout-button:hover {
+    color: #7d0000;
+}
+
+
+/* Vertical line */
+
+.lab-tech-header-divider {
+    height: 30px;
+    width: 1px;
+
+    background: #ddd;
+
+    margin: 0 8px;
+}
+
+
+/* Profile */
+
+.lab-tech-profile-pic {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.lab-tech-user-name {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #333;
+}

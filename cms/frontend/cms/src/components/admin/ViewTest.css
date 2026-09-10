@@ -1,0 +1,210 @@
+.view-test-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+}
+
+
+.view-test-card {
+    width: 650px;
+    max-width: 90%;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+
+    overflow: hidden;
+}
+
+
+/* Header */
+
+.view-test-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 22px 25px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.view-test-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+    color: #333;
+}
+
+.view-test-header p {
+    margin: 5px 0 0;
+
+    font-size: 13px;
+    color: #777;
+}
+
+.view-test-close-icon {
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    color: #777;
+
+    cursor: pointer;
+}
+
+.view-test-close-icon:hover {
+    color: #a00000;
+}
+
+
+/* Details */
+
+.test-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+    padding: 25px;
+}
+
+.test-detail-item {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.test-detail-item.full-width {
+    grid-column: span 2;
+}
+
+.test-detail-item label {
+    font-size: 12px;
+
+    color: #777;
+
+    font-weight: 500;
+}
+
+.test-detail-item span {
+    font-size: 14px;
+
+    color: #333;
+
+    font-weight: 500;
+}
+
+
+/* Actions */
+
+.view-test-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 18px 25px;
+
+    border-top: 1px solid #eee;
+}
+
+
+.view-test-actions button {
+    padding: 9px 18px;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+
+/* Edit */
+
+.edit-test-button {
+    background: white;
+
+    border: 1px solid #a00000;
+
+    color: #a00000;
+}
+
+.edit-test-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* Delete */
+
+.delete-test-button {
+    background: #dc3545;
+
+    border: 1px solid #dc3545;
+
+    color: white;
+}
+
+.delete-test-button:hover {
+    background: #b02a37;
+}
+
+
+/* Close */
+
+.close-test-button {
+    background: #eee;
+
+    border: 1px solid #ddd;
+
+    color: #333;
+}
+
+.close-test-button:hover {
+    background: #ddd;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .view-test-card {
+        width: 95%;
+    }
+
+    .test-details {
+        grid-template-columns: 1fr;
+    }
+
+    .test-detail-item.full-width {
+        grid-column: span 1;
+    }
+
+    .view-test-actions {
+        flex-wrap: wrap;
+    }
+
+}

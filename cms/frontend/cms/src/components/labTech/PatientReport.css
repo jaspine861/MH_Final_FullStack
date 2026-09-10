@@ -1,0 +1,256 @@
+.patient-report-section {
+    margin-top: 25px;
+}
+
+
+/* =========================
+   Controls
+========================= */
+
+.patient-report-controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   Filter
+========================= */
+
+.report-filter-container {
+    position: relative;
+}
+
+.report-filter-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    background: white;
+    color: #a00000;
+
+    border: 1px solid #a00000;
+    border-radius: 5px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.report-filter-button:hover,
+.report-filter-button.report-filter-active {
+    background: #a00000;
+    color: white;
+}
+
+
+/* Filter Dropdown */
+
+.report-filter-options {
+    position: absolute;
+    top: 45px;
+    left: 0;
+
+    width: 150px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+
+    z-index: 10;
+
+    overflow: hidden;
+}
+
+.report-filter-option {
+    width: 100%;
+
+    padding: 10px 15px;
+
+    border: none;
+    background: white;
+
+    text-align: left;
+
+    font-size: 14px;
+    color: #333;
+
+    cursor: pointer;
+}
+
+.report-filter-option:hover,
+.report-filter-option.selected {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   Search
+========================= */
+
+.report-search-container {
+    width: 280px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+}
+
+.report-search-container:focus-within {
+    border-color: #a00000;
+}
+
+.report-search-icon {
+    font-size: 20px;
+    color: #777;
+
+    margin-right: 8px;
+}
+
+.report-search-container input {
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+.report-search-container input::placeholder {
+    color: #999;
+}
+
+
+/* =========================
+   Table
+========================= */
+
+.patient-report-table-container {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.patient-report-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+/* Table Header */
+
+.patient-report-table-container th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+/* Table Body */
+
+.patient-report-table-container td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+.patient-report-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   Status
+========================= */
+
+.report-status {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+
+/* Completed */
+
+.report-status.completed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+
+/* Under Review */
+
+.report-status.under-review {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* =========================
+   Action Button
+========================= */
+
+.report-action-button {
+    padding: 7px 15px;
+
+    border: 1px solid #a00000;
+
+    border-radius: 4px;
+
+    background: white;
+
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.report-action-button:hover {
+    background: #a00000;
+    color: white;
+}

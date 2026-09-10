@@ -1,0 +1,299 @@
+.patient-section {
+    margin-top: 25px;
+}
+
+/* Filter */
+
+/* .filter-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+} */
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    background: white;
+    color: #a00000;
+
+    border: 1px solid #a00000;
+    border-radius: 5px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.filter-button:hover,
+.filter-button.filter-active {
+    background: #a00000;
+    color: white;
+}
+
+.filter-options {
+    position: absolute;
+    top: 45px;
+    left: 0;
+
+    width: 150px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+
+    z-index: 10;
+
+    overflow: hidden;
+}
+
+.filter-option {
+    width: 100%;
+
+    padding: 10px 15px;
+
+    border: none;
+    background: white;
+
+    text-align: left;
+
+    font-size: 14px;
+    color: #333;
+
+    cursor: pointer;
+}
+
+.filter-option:hover,
+.filter-option.selected {
+    background: #a00000;
+    color: white;
+}
+
+
+/* Table */
+
+.patient-table-container {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.patient-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.patient-table-container th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+.patient-table-container td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+.patient-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Status */
+
+.status {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.in-progress {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status.done {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+
+/* Action */
+
+.action-button {
+    padding: 7px 15px;
+
+    border: 1px solid #a00000;
+    border-radius: 4px;
+
+    background: white;
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.action-button:hover {
+    background: #a00000;
+    color: white;
+}
+.patient-controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.filter-container {
+    position: relative;
+}
+
+/* Filter button */
+
+.filter-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    background: white;
+    color: #a00000;
+
+    border: 1px solid #a00000;
+    border-radius: 5px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.filter-button:hover,
+.filter-button.filter-active {
+    background: #a00000;
+    color: white;
+}
+
+
+/* Filter dropdown */
+
+.filter-options {
+    position: absolute;
+    top: 45px;
+    left: 0;
+
+    width: 150px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+
+    z-index: 10;
+    overflow: hidden;
+}
+
+.filter-option {
+    width: 100%;
+
+    padding: 10px 15px;
+
+    border: none;
+    background: white;
+
+    text-align: left;
+
+    font-size: 14px;
+    color: #333;
+
+    cursor: pointer;
+}
+
+.filter-option:hover,
+.filter-option.selected {
+    background: #a00000;
+    color: white;
+}
+
+
+/* Search */
+
+.search-container {
+    width: 280px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+}
+
+.search-container:focus-within {
+    border-color: #a00000;
+}
+
+.search-icon {
+    font-size: 20px;
+    color: #777;
+    margin-right: 8px;
+}
+
+.search-container input {
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+.search-container input::placeholder {
+    color: #999;
+}

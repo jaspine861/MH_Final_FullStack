@@ -1,0 +1,46 @@
+.lab-tech-dashboard-top {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+
+/* Welcome card takes more space */
+
+.lab-tech-dashboard-top .lab-tech-welcome-card {
+    flex: 2;
+}
+
+
+/* Three cards stay together */
+
+.lab-tech-stats-container {
+    display: flex;
+    gap: 15px;
+    flex: 3;
+}
+
+.lab-tech-stats-container .stat-card {
+    flex: 1;
+}
+
+
+/* Stat Card */
+
+.stat-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+    min-width: 0;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}

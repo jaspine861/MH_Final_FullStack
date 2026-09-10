@@ -1,0 +1,160 @@
+.edit-department-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.edit-department-popup {
+    width: 450px;
+    max-width: 90%;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    padding: 25px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+.edit-department-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.edit-department-header h2 {
+    margin: 0;
+
+    font-size: 21px;
+
+    color: #1f2937;
+}
+
+.edit-department-close {
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #6b7280;
+
+    cursor: pointer;
+}
+
+.edit-department-close:hover {
+    color: #111827;
+}
+
+.edit-department-group {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 18px;
+}
+
+.edit-department-group label {
+    margin-bottom: 7px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.edit-department-group input,
+.edit-department-group textarea {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    font-family: inherit;
+
+    outline: none;
+}
+
+.edit-department-group input:focus,
+.edit-department-group textarea:focus {
+    border-color: #2563eb;
+}
+
+.edit-department-group textarea {
+    resize: vertical;
+}
+
+.edit-department-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.edit-department-cancel,
+.edit-department-save {
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+.edit-department-cancel {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+.edit-department-cancel:hover {
+    background: #d1d5db;
+}
+
+.edit-department-save {
+    background: #2563eb;
+
+    color: white;
+}
+
+.edit-department-save:hover {
+    background: #1d4ed8;
+}
+
+.edit-department-save:disabled,
+.edit-department-cancel:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}

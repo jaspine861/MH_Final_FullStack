@@ -1,0 +1,33 @@
+.admin-dashboard-top {
+    display: flex;
+
+    gap: 20px;
+
+    width: 100%;
+}
+
+
+/* =========================
+   Welcome Card
+   ========================= */
+
+.admin-dashboard-top .admin-welcome-card {
+    flex: 2;
+}
+
+
+/* =========================
+   Statistics
+   ========================= */
+
+.admin-stats-container {
+    display: flex;
+
+    gap: 15px;
+
+    flex: 3;
+}
+
+.admin-stats-container .stat-card {
+    flex: 1;
+}

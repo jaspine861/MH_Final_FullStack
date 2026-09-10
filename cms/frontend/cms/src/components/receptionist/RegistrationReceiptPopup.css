@@ -1,0 +1,304 @@
+.receipt-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 3000;
+}
+
+.receipt-card {
+    width: 520px;
+    max-width: 92%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.receipt-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+.receipt-header h2 {
+    margin: 0;
+}
+
+.receipt-header p {
+    margin: 5px 0;
+
+    color: #777;
+}
+
+.receipt-close-button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.hospital-section {
+    text-align: center;
+
+    margin-top: 15px;
+}
+
+.hospital-section h1 {
+    margin: 0;
+
+    font-size: 24px;
+}
+
+.hospital-section p {
+    margin: 4px 0;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+.receipt-divider {
+    border-top: 1px dashed #bbb;
+
+    margin: 20px 0;
+}
+
+.receipt-meta {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.receipt-meta span {
+    display: block;
+
+    font-size: 12px;
+
+    color: #777;
+
+    margin-bottom: 5px;
+}
+
+.receipt-meta strong {
+    font-size: 14px;
+}
+
+.receipt-patient,
+.receipt-payment {
+    border: 1px solid #e5e5e5;
+
+    border-radius: 8px;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+}
+
+.receipt-patient h3,
+.receipt-payment h3 {
+    margin-top: 0;
+
+    margin-bottom: 15px;
+
+    font-size: 16px;
+}
+
+.receipt-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid #eee;
+}
+
+.receipt-row:last-child {
+    border-bottom: none;
+}
+
+.receipt-row span {
+    color: #666;
+}
+
+.receipt-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 15px;
+
+    padding-top: 15px;
+
+    border-top: 2px solid #222;
+
+    font-size: 18px;
+}
+
+.receipt-total strong {
+    font-size: 22px;
+}
+
+.paid-status {
+    text-align: center;
+
+    margin: 20px auto;
+
+    width: 100px;
+
+    padding: 7px;
+
+    border: 2px solid #16a34a;
+
+    border-radius: 20px;
+
+    font-weight: 700;
+
+    font-size: 13px;
+}
+
+.receipt-thank-you {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+.receipt-actions {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.receipt-print-button,
+.receipt-done-button {
+    padding: 11px 20px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+}
+
+.receipt-print-button {
+    border: 1px solid #ccc;
+
+    background: white;
+}
+
+.receipt-done-button {
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+}
+
+/* ============================= */
+/* PRINT STYLES */
+/* ============================= */
+
+@media print {
+
+    /* Hide everything by default */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Show only receipt */
+    .receipt-overlay,
+    .receipt-card,
+    .receipt-card * {
+        visibility: visible;
+    }
+
+    /* Remove overlay background */
+    .receipt-overlay {
+        position: absolute;
+        inset: 0;
+
+        background: none;
+
+        display: block;
+
+        width: 100%;
+        height: auto;
+
+        z-index: auto;
+    }
+
+    /* Receipt itself */
+    .receipt-card {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        max-width: none;
+
+        max-height: none;
+
+        overflow: visible;
+
+        margin: 0;
+
+        padding: 25px;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+    /* Hide buttons while printing */
+    .receipt-actions,
+    .receipt-close-button {
+        display: none !important;
+    }
+
+    /* Prevent unnecessary page breaks */
+    .receipt-card {
+        page-break-inside: avoid;
+    }
+
+    .receipt-patient,
+    .receipt-payment,
+    .receipt-meta {
+        page-break-inside: avoid;
+    }
+
+}
+
+@page {
+    size: A4;
+    margin: 15mm;
+}

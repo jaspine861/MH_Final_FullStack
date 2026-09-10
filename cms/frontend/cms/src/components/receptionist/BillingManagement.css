@@ -1,0 +1,401 @@
+/* =========================
+   BILLING MANAGEMENT
+========================= */
+
+.billing-management {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.billing-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.billing-page-header h2 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.billing-page-header p {
+    margin: 6px 0 0;
+    color: #888;
+    font-size: 14px;
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.billing-controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.billing-search {
+    display: flex;
+    align-items: center;
+
+    width: 380px;
+    height: 42px;
+
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    padding: 0 12px;
+    box-sizing: border-box;
+}
+
+.billing-search span {
+    color: #888;
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.billing-search input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+    color: #333;
+
+    background: transparent;
+}
+
+.billing-search input::placeholder {
+    color: #aaa;
+}
+
+
+/* =========================
+   RESULT COUNT
+========================= */
+
+.billing-result-count {
+    margin-bottom: 12px;
+
+    color: #777;
+    font-size: 13px;
+}
+
+.billing-result-count strong {
+    color: #333;
+}
+
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+
+.billing-table-container {
+    width: 100%;
+
+    background: white;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.billing-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 800px;
+}
+
+.billing-table-container thead {
+    background: #fafafa;
+}
+
+.billing-table-container th {
+    padding: 15px 18px;
+
+    text-align: left;
+
+    color: #777;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.billing-table-container td {
+    padding: 16px 18px;
+
+    color: #444;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #eee;
+
+    vertical-align: middle;
+}
+
+.billing-table-container tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.billing-table-container tbody tr:hover {
+    background: #fafafa;
+}
+
+
+/* =========================
+   PATIENT
+========================= */
+
+.billing-patient-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.billing-patient-avatar {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    background: #f2e6e6;
+    color: #a00000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    flex-shrink: 0;
+}
+
+.billing-patient-cell > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.billing-patient-cell strong {
+    color: #333;
+    font-size: 14px;
+}
+
+.billing-patient-cell span {
+    color: #999;
+    font-size: 11px;
+}
+
+
+/* =========================
+   DEPARTMENT
+========================= */
+
+.billing-department {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    background: #f5f5f5;
+
+    border-radius: 4px;
+
+    color: #555;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   AMOUNT
+========================= */
+
+.billing-amount {
+    color: #333;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   PAYMENT STATUS
+========================= */
+
+.billing-status {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.billing-status.paid {
+    background: #e8f7ee;
+    color: #16803c;
+}
+
+.billing-status.pending {
+    background: #fff4d6;
+    color: #856404;
+}
+
+
+/* =========================
+   OPEN BUTTON
+========================= */
+
+.open-bill-button {
+    padding: 7px 15px;
+
+    border: 1px solid #a00000;
+    border-radius: 5px;
+
+    background: white;
+    color: #a00000;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.open-bill-button:hover {
+    background: #a00000;
+    color: white;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.billing-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 250px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   NO BILLS
+========================= */
+
+.no-bills {
+    height: 250px;
+
+    text-align: center;
+}
+
+.no-bills > div {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 250px;
+}
+
+.no-bills span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+
+    background: #f5eaea;
+
+    color: #a00000;
+
+    font-size: 20px;
+}
+
+.no-bills p {
+    margin: 5px 0;
+
+    color: #555;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.no-bills small {
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .billing-page-header h2 {
+        font-size: 20px;
+    }
+
+    .billing-search {
+        width: 100%;
+    }
+
+    .billing-controls {
+        width: 100%;
+    }
+
+    .billing-table-container {
+        border-radius: 6px;
+    }
+
+    .billing-table-container th,
+    .billing-table-container td {
+        padding: 12px;
+    }
+}

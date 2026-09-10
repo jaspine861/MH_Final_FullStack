@@ -1,0 +1,438 @@
+.appointment-bill-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2000;
+
+    padding: 20px;
+}
+
+
+.appointment-bill-popup {
+    width: 650px;
+    max-width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Header */
+
+.appointment-bill-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 25px 30px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.hospital-info h1 {
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #a00000;
+}
+
+
+.hospital-info p {
+    margin: 5px 0;
+
+    color: #555;
+
+    font-size: 13px;
+}
+
+
+.hospital-info span {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+
+.appointment-bill-close {
+    border: none;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #777;
+
+    cursor: pointer;
+
+    line-height: 1;
+}
+
+
+.appointment-bill-close:hover {
+    color: #a00000;
+}
+
+
+/* Bill Meta */
+
+.appointment-bill-meta {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 18px 30px;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.appointment-bill-meta div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.appointment-bill-meta span {
+    font-size: 12px;
+
+    color: #777;
+}
+
+
+.appointment-bill-meta strong {
+    font-size: 14px;
+
+    color: #333;
+}
+
+
+/* Sections */
+
+.appointment-bill-section {
+    padding: 20px 30px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.appointment-bill-section h3 {
+    margin: 0 0 18px;
+
+    font-size: 15px;
+
+    color: #333;
+}
+
+
+.appointment-bill-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px 30px;
+}
+
+
+.appointment-bill-grid label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+.appointment-bill-grid p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #333;
+
+    font-weight: 500;
+}
+
+
+/* Payment */
+
+.appointment-bill-payment {
+    padding: 20px 30px;
+}
+
+
+.payment-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 10px 0;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+
+.payment-row strong {
+    color: #333;
+}
+
+
+.paid-status {
+    color: #16803c !important;
+}
+
+
+.payment-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 12px;
+
+    padding-top: 15px;
+
+    border-top: 2px solid #eee;
+
+    font-size: 17px;
+
+    color: #333;
+}
+
+
+.payment-total strong {
+    color: #a00000;
+
+    font-size: 20px;
+}
+
+
+/* Footer */
+
+.appointment-bill-footer {
+    text-align: center;
+
+    padding: 15px 30px;
+
+    border-top: 1px solid #eee;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+.appointment-bill-footer p {
+    margin: 3px 0;
+}
+
+
+/* Buttons */
+
+.appointment-bill-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 18px 30px;
+
+    border-top: 1px solid #eee;
+}
+
+
+.appointment-bill-actions button {
+    padding: 9px 18px;
+
+    border-radius: 5px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.appointment-bill-print {
+    background: white;
+
+    border: 1px solid #a00000;
+
+    color: #a00000;
+}
+
+
+.appointment-bill-print:hover {
+    background: #a00000;
+
+    color: white;
+}
+
+
+.appointment-bill-done {
+    background: #a00000;
+
+    border: 1px solid #a00000;
+
+    color: white;
+}
+
+
+.appointment-bill-done:hover {
+    background: #820000;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .appointment-bill-popup {
+        width: 100%;
+    }
+
+
+    .appointment-bill-header,
+    .appointment-bill-meta,
+    .appointment-bill-section,
+    .appointment-bill-payment {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+
+    .appointment-bill-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .appointment-bill-actions {
+        padding: 15px 20px;
+    }
+
+}
+
+
+/* ============================= */
+/* PRINT BILL */
+/* ============================= */
+
+@media print {
+
+    /* Hide everything on the page */
+    body * {
+        visibility: hidden;
+    }
+
+    /* Show only the bill */
+    .appointment-bill-popup,
+    .appointment-bill-popup * {
+        visibility: visible;
+    }
+
+    /* Remove overlay from printed layout */
+    .appointment-bill-overlay {
+        position: static;
+        inset: auto;
+        background: none;
+        padding: 0;
+        display: block;
+    }
+
+    /* Bill itself */
+    .appointment-bill-popup {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        width: 100%;
+        max-width: none;
+        max-height: none;
+
+        margin: 0;
+        padding: 0;
+
+        border-radius: 0;
+        box-shadow: none;
+
+        overflow: visible;
+    }
+
+    /* Hide close button */
+    .appointment-bill-close {
+        display: none;
+    }
+
+    /* Hide action buttons */
+    .appointment-bill-actions {
+        display: none;
+    }
+
+    /* Make footer visible */
+    .appointment-bill-footer {
+        display: flex;
+    }
+
+    /* Better print spacing */
+    .appointment-bill-header {
+        padding: 20px 25px;
+    }
+
+    .appointment-bill-section {
+        padding: 18px 25px;
+    }
+
+    .appointment-bill-payment {
+        padding: 18px 25px;
+    }
+
+    .appointment-bill-meta {
+        padding: 15px 25px;
+    }
+
+    /* Prevent sections from splitting */
+    .appointment-bill-header,
+    .appointment-bill-meta,
+    .appointment-bill-section,
+    .appointment-bill-payment,
+    .appointment-bill-footer {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    /* Remove unnecessary page margins */
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+}

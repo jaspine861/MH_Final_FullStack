@@ -1,0 +1,181 @@
+.sales-report-section {
+    margin-top: 25px;
+}
+
+
+.sales-report-header {
+    margin-bottom: 20px;
+}
+
+
+.sales-report-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #333;
+}
+
+
+.sales-report-header p {
+    margin: 5px 0 0;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+
+/* Report filter */
+
+.report-filter-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.report-filter-buttons button {
+    padding: 8px 18px;
+
+    border: 1px solid #a00000;
+
+    border-radius: 5px;
+
+    background: white;
+
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+.report-filter-buttons button:hover,
+.report-filter-buttons button.active {
+    background: #a00000;
+
+    color: white;
+}
+
+
+/* Summary */
+
+.sales-summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.sales-summary-card {
+    background: white;
+
+    border-radius: 8px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.sales-summary-card span {
+    color: #777;
+
+    font-size: 12px;
+}
+
+
+.sales-summary-card strong {
+    color: #a00000;
+
+    font-size: 22px;
+}
+
+
+/* Table */
+
+.sales-report-table {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.sales-report-table table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.sales-report-table th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.sales-report-table td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.sales-report-table tr:last-child td {
+    border-bottom: none;
+}
+
+
+@media (max-width: 800px) {
+
+    .sales-summary-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .sales-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

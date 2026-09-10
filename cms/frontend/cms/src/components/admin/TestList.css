@@ -1,0 +1,618 @@
+/* =========================================================
+   TEST SECTION
+   ========================================================= */
+
+.test-section {
+    width: 100%;
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   TOP CONTROLS
+   ========================================================= */
+
+.test-controls {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.test-search {
+    width: 280px;
+    height: 48px;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+
+    outline: none;
+
+    font-size: 14px;
+    color: #333;
+}
+
+.test-search::placeholder {
+    color: #999;
+}
+
+.test-search:focus {
+    border-color: #a00000;
+}
+
+
+/* =========================================================
+   ADD TEST BUTTON
+   ========================================================= */
+
+.add-test-button {
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 20px;
+
+    background: #ffffff;
+
+    color: #a00000;
+
+    border: 1px solid #a00000;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.add-test-button:hover {
+    background: #a00000;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   TABLE CONTAINER
+   ========================================================= */
+
+.test-table-container {
+    width: 100%;
+
+    background: #ffffff;
+
+    border-radius: 9px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.test-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    /*
+       VERY IMPORTANT
+
+       This makes the browser respect our
+       column widths instead of spreading
+       the columns automatically.
+    */
+    table-layout: fixed;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.test-table thead {
+    width: 100%;
+}
+
+.test-table th {
+    height: 58px;
+
+    padding: 0 18px;
+
+    text-align: left;
+    vertical-align: middle;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #111111;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLE BODY
+   ========================================================= */
+
+.test-table td {
+    height: 76px;
+
+    padding: 0 18px;
+
+    text-align: left;
+    vertical-align: middle;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #333333;
+
+    font-size: 14px;
+}
+
+.test-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================================
+   COLUMN WIDTHS
+
+   These match your JSX:
+
+   1 = Test ID
+   2 = Test Name
+   3 = Department
+   4 = Price
+   5 = TAT
+   6 = Status
+   7 = Action
+   ========================================================= */
+
+
+/* TEST ID */
+
+.test-table th:nth-child(1),
+.test-table td:nth-child(1) {
+    width: 9%;
+}
+
+
+/* TEST NAME */
+
+.test-table th:nth-child(2),
+.test-table td:nth-child(2) {
+    width: 18%;
+}
+
+
+/* DEPARTMENT */
+
+.test-table th:nth-child(3),
+.test-table td:nth-child(3) {
+    width: 14%;
+}
+
+
+/* PRICE */
+
+.test-table th:nth-child(4),
+.test-table td:nth-child(4) {
+    width: 9%;
+}
+
+
+/* TAT */
+
+.test-table th:nth-child(5),
+.test-table td:nth-child(5) {
+    width: 9%;
+}
+
+
+/* STATUS */
+
+.test-table th:nth-child(6),
+.test-table td:nth-child(6) {
+    width: 13%;
+}
+
+
+/* =========================================================
+   ACTION COLUMN
+
+   This is the important fix.
+   ========================================================= */
+
+.test-table th:nth-child(7),
+.test-table td:nth-child(7) {
+    width: 28%;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   ACTION BUTTON CONTAINER
+
+   Your JSX has:
+
+   <td>
+       <div className="test-actions">
+           <button>View</button>
+           <button>Edit</button>
+           <button>...</button>
+       </div>
+   </td>
+
+   So we control the div directly.
+   ========================================================= */
+
+.test-actions {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+
+    /*
+       Prevent buttons from wrapping
+       onto another line.
+    */
+    flex-wrap: nowrap;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ALL ACTION BUTTONS
+   ========================================================= */
+
+.test-actions button {
+    flex: 0 0 auto;
+
+    height: 40px;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    background: #ffffff;
+
+    font-size: 14px;
+
+    border-radius: 5px;
+
+    transition: all 0.2s ease;
+}
+
+
+/* =========================================================
+   VIEW BUTTON
+   ========================================================= */
+
+.view-button {
+    min-width: 73px;
+
+    padding: 0 16px;
+
+    border: 1px solid #a00000;
+
+    color: #a00000;
+
+    background: #ffffff;
+}
+
+.view-button:hover {
+    background: #a00000;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+   ========================================================= */
+
+.edit-button {
+    min-width: 65px;
+
+    padding: 0 16px;
+
+    border: 1px solid #a00000;
+
+    color: #a00000;
+
+    background: #ffffff;
+}
+
+.edit-button:hover {
+    background: #a00000;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   DEACTIVATE BUTTON
+   ========================================================= */
+
+.deactivate-button {
+    min-width: 114px;
+
+    height: 40px;
+
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dc3545;
+
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    color: #dc3545;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+}
+
+.deactivate-button:hover {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   ACTIVATE BUTTON
+   ========================================================= */
+
+.activate-button {
+    min-width: 95px;
+
+    height: 40px;
+
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #198754;
+
+    border-radius: 5px;
+
+    background: #ffffff;
+
+    color: #198754;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+    transition: all 0.2s ease;
+}
+
+.activate-button:hover {
+    background: #198754;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-available {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #d1e7dd;
+
+    color: #0f5132;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+.status-maintenance {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: #fff3cd;
+
+    color: #856404;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   OLD STATUS CLASSES
+   Keep these in case another component uses them.
+   ========================================================= */
+
+.test-status {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+.test-status.available {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.test-status.maintenance {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* =========================================================
+   NO TESTS
+   ========================================================= */
+
+.no-tests {
+    height: 100px !important;
+
+    padding: 25px !important;
+
+    text-align: center !important;
+
+    color: #777 !important;
+
+    font-size: 14px !important;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-text {
+    width: 100%;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   IMPORTANT OVERRIDE
+
+   This guarantees that the Action buttons
+   start immediately from the LEFT of the
+   Action cell.
+
+   If another global CSS file contains
+   justify-content:center/right, this wins.
+   ========================================================= */
+
+.test-table td:last-child .test-actions {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: flex-start !important;
+
+    gap: 10px !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .test-table {
+        min-width: 1050px;
+    }
+
+    .test-table-container {
+        overflow-x: auto;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .test-controls {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+    }
+
+    .test-search {
+        width: 100%;
+    }
+
+    .add-test-button {
+        width: fit-content;
+
+        align-self: flex-end;
+    }
+}

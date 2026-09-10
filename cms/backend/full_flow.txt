@@ -1,0 +1,149 @@
+python -m venv env
+
+->(in powershell)
+.\env\Scripts\Activate.ps1
+
+pip install Django
+
+->(to check installed)
+pip freeze
+
+django-admin startproject cms .
+
+python manage.py runserver
+
+https://www.django-rest-framework.org/#requireme  -> go to installations
+pip install djangorestframework
+Add 'rest_framework' to your INSTALLED_APPS setting.
+INSTALLED_APPS = [
+    # ...
+    "rest_framework",
+]
+
+python manage.py startapp doctor
+
+->(in settings.py)
+INSTALLED_APPS = [
+    # ...
+    "doctor",
+]
+
+
+->(in main urls.py)
+from django.urls import path ,include   <-
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('doctor/',include('doctor.urls')), <-
+]
+
+->( create urls.py in doctor)
+from django.urls import path
+from . import views
+
+urlpatterns=[
+    path('',views.doctor),
+]
+
+->( create views.py in doctor)
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def doctor(request):
+    return HttpResponse('<h2>Hello World</h2>')
+
+->(in main urls.py)
+urlpatterns = [
+   
+...
+
+    #api               <-
+    path('api/v1/',include('api.urls'))   <-
+]
+
+->(in terminal)
+python manage.py startapp api
+
+->(in main settings.py)
+INSTALLED_APPS = [
+ ...
+    "api",         <-
+]
+
+
+->(in api urls.py)
+from django.urls import path
+from . import views
+
+urlpatterns=[
+    path('cms/',views.cmsView)
+]
+
+->(in api views.py)
+from django.http import JsonResponse
+# Create your views here.
+
+def cmsView(request):
+    students={
+        "id":1,
+        "name":"jack"
+    }
+    return JsonResponse(students)
+
+->(check the url)
+python manage.py runserver
+http://127.0.0.1:8000/api/v1/cms
+
+->(in terminal)
+python manage.py migrate
+python manage.py createsuperuser
+Username (leave blank to use 'rc'): admin
+Email address: keranbrijith@gmail.com
+
+->(in doctor models.py)
+from django.db import models
+
+# Create your models here.
+class Consultation(models.Model):
+    consultation_id = models.AutoField(primary_key=True)
+    appointment = models.TextField()
+    symptoms = models.TextField()
+    diagnosis = models.TextField()
+    consultation_date = models.DateField()
+    notes = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.appointment
+
+
+->(in powershell)
+python manage.py makemigrations
+python manage.py migrate       
+
+
+->(in doctor admin.py)
+from django.contrib import admin
+from .models import Consultation
+# Register your models here.
+
+admin.site.register(Consultation)
+
+->(in api views.py)
+from django.shortcuts import render
+from django.http import JsonResponse
+from doctor.models import Consultation
+# Create your views here.
+
+def cmsView(request):
+    consultation=Consultation.objects.all()
+    consultation_list=list(consultation.values())
+    return JsonResponse(consultation_list,safe=False)
+
+->(check the output in bowser)
+http://127.0.0.1:8000/api/v1/cms/
+
+
+
+
+
+

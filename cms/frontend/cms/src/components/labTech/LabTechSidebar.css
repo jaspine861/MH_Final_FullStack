@@ -1,0 +1,97 @@
+.lab-tech-sidebar {
+    width: 240px;
+    min-height: calc(100vh - 70px);
+
+    background-color: #ffffff;
+
+    border-right: 1px solid #e5e5e5;
+
+    padding: 20px 12px;
+
+    box-sizing: border-box;
+}
+
+
+.lab-tech-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/* Normal sidebar option */
+
+.lab-tech-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 15px;
+
+    text-decoration: none;
+    color: #444;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+
+/* Icon */
+
+.lab-tech-menu-item img {
+    width: 21px;
+    height: 21px;
+
+    object-fit: contain;
+
+    transition: all 0.2s ease;
+}
+
+
+/* =========================
+   SELECTED OPTION
+   ========================= */
+
+.lab-tech-menu-item.active {
+    background-color: #8b0000;
+
+    color: #ffffff;
+
+    border-color: #8b0000;
+}
+
+
+/* Make selected icon white */
+
+.lab-tech-menu-item.active img {
+    filter: brightness(0) invert(1);
+}
+
+
+/* =========================
+   HOVER - NOT SELECTED
+   ========================= */
+
+.lab-tech-menu-item:not(.active):hover {
+    background-color: #ffffff;
+
+    color: #8b0000;
+
+    border-color: #8b0000;
+}
+
+
+/* Make hovered icon red */
+
+.lab-tech-menu-item:not(.active):hover img {
+    filter: brightness(0) saturate(100%)
+            invert(13%) sepia(90%)
+            saturate(4000%)
+            hue-rotate(350deg)
+            brightness(75%);
+}

@@ -1,0 +1,370 @@
+.medicine-details-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 3000;
+}
+
+
+.medicine-details-popup {
+    width: 650px;
+
+    max-width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Header */
+
+.medicine-details-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding: 22px 28px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.medicine-details-header h2 {
+    margin: 0;
+
+    color: #333;
+
+    font-size: 20px;
+}
+
+
+.medicine-details-header p {
+    margin: 5px 0 0;
+
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+.medicine-details-close {
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.medicine-details-close:hover {
+    color: #a00000;
+}
+
+
+/* Medicine Title */
+
+.medicine-details-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px 28px;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.medicine-details-avatar {
+    width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f5e6e6;
+
+    color: #a00000;
+
+    font-size: 20px;
+
+    font-weight: 600;
+}
+
+
+.medicine-details-title h3 {
+    margin: 0;
+
+    color: #333;
+
+    font-size: 18px;
+}
+
+
+.medicine-details-title span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+
+/* Section */
+
+.medicine-details-section {
+    padding: 20px 28px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.medicine-details-section h3 {
+    margin: 0 0 18px;
+
+    color: #333;
+
+    font-size: 15px;
+}
+
+
+/* Grid */
+
+.medicine-details-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px 30px;
+}
+
+
+.medicine-details-grid div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.medicine-details-grid label {
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+.medicine-details-grid strong {
+    color: #333;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* Stock */
+
+.medicine-stock-value {
+    color: #a00000 !important;
+
+    font-size: 16px !important;
+}
+
+
+/* Status */
+
+.medicine-details-status {
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.medicine-details-status.available {
+    background: #d1e7dd;
+
+    color: #0f5132;
+}
+
+
+.medicine-details-status.low-stock {
+    background: #fff3cd;
+
+    color: #856404;
+}
+
+
+.medicine-details-status.out-of-stock {
+    background: #f8d7da;
+
+    color: #842029;
+}
+
+
+.medicine-details-status.expired {
+    background: #e2e3e5;
+
+    color: #41464b;
+}
+
+
+/* Footer */
+
+.medicine-details-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding: 16px 28px;
+}
+
+
+.medicine-details-close-button {
+    padding: 9px 18px;
+
+    border-radius: 5px;
+
+    background: #a00000;
+
+    border: 1px solid #a00000;
+
+    color: white;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.medicine-details-close-button:hover {
+    background: #820000;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .medicine-details-popup {
+        width: 100%;
+    }
+
+
+    .medicine-details-header,
+    .medicine-details-title,
+    .medicine-details-section {
+        padding-left: 20px;
+
+        padding-right: 20px;
+    }
+
+
+    .medicine-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .medicine-details-footer {
+        padding: 15px 20px;
+    }
+
+}
+
+
+
+.medicine-restock {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.medicine-restock label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.medicine-restock-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.medicine-restock-controls input {
+    width: 180px;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.medicine-restock-controls input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.medicine-restock-controls button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.medicine-restock-controls button:hover {
+    background: #1d4ed8;
+}
+
+.medicine-restock-controls button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

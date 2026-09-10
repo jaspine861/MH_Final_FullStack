@@ -1,0 +1,809 @@
+
+.billing-section {
+    margin-top: 25px;
+}
+
+
+/* =========================
+   CONTROLS
+   ========================= */
+
+.billing-controls {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   SEARCH
+   ========================= */
+
+.billing-search-container {
+    width: 280px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+}
+
+.billing-search-container:focus-within {
+    border-color: #a00000;
+}
+
+.billing-search-icon {
+    font-size: 20px;
+
+    color: #777;
+
+    margin-right: 8px;
+}
+
+.billing-search-container input {
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.billing-search-container input::placeholder {
+    color: #999;
+}
+
+
+/* =========================
+   BILLING TABLE
+   ========================= */
+
+.billing-table-container {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.billing-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+/* =========================
+   TABLE HEADER
+   ========================= */
+
+.billing-table-container th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+/* =========================
+   TABLE DATA
+   ========================= */
+
+.billing-table-container td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+.billing-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================
+   PAYMENT STATUS
+   ========================= */
+
+.billing-status {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* Paid */
+
+.billing-status.paid {
+    background: #d1e7dd;
+
+    color: #0f5132;
+}
+
+
+/* Pending */
+
+.billing-status.pending {
+    background: #fff3cd;
+
+    color: #856404;
+}
+
+
+/* =========================
+   ACTION BUTTON
+   ========================= */
+
+.billing-action-button {
+    padding: 7px 15px;
+
+    border: 1px solid #a00000;
+
+    border-radius: 4px;
+
+    background: white;
+
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.billing-action-button:hover {
+    background: #a00000;
+
+    color: white;
+}
+
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.no-billing-records {
+    text-align: center;
+
+    padding: 25px !important;
+
+    color: #777 !important;
+}
+
+
+/* =================================================
+   BILL VIEW MODAL
+   ================================================= */
+
+.bill-modal-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    z-index: 9999;
+}
+
+
+/* =========================
+   MODAL BOX
+   ========================= */
+
+.bill-modal-content {
+    width: 650px;
+
+    max-width: 95%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+
+    overflow-x: hidden;
+}
+
+
+/* =================================================
+   HOSPITAL HEADER
+   ================================================= */
+
+.hospital-bill-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px 25px;
+
+    background: #ffffff;
+
+    border-bottom: 2px solid #8b0000;
+}
+
+
+/* =========================
+   HOSPITAL LOGO
+   ========================= */
+
+.hospital-bill-logo {
+    width: 70px;
+
+    height: 70px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   HOSPITAL INFORMATION
+   ========================= */
+
+.hospital-bill-info {
+    flex: 1;
+}
+
+.hospital-bill-info h2 {
+    margin: 0 0 5px 0;
+
+    color: #8b0000;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+}
+
+.hospital-bill-info p {
+    margin: 3px 0;
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+
+/* =================================================
+   BILL TITLE
+   ================================================= */
+
+.bill-title-section {
+    text-align: center;
+
+    padding: 15px 20px;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.bill-title-section h3 {
+    margin: 0;
+
+    color: #333;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =================================================
+   BILL INFORMATION
+   ================================================= */
+
+.bill-information {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 18px 25px;
+}
+
+.bill-information > div {
+    flex: 1;
+}
+
+.bill-information p {
+    margin: 7px 0;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+.bill-information strong {
+    color: #333;
+}
+
+
+/* =================================================
+   DIVIDER
+   ================================================= */
+
+.bill-divider {
+    height: 1px;
+
+    background: #dddddd;
+
+    margin: 0 25px;
+}
+
+
+/* =================================================
+   MEDICINE DETAILS SECTION
+   ================================================= */
+
+.bill-medicine-section {
+    padding: 18px 25px 5px 25px;
+}
+
+.bill-medicine-section h4 {
+    margin: 0 0 12px 0;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #333;
+}
+
+
+/* =================================================
+   MEDICINE TABLE
+   ================================================= */
+
+.bill-medicine-section .hospital-bill-table {
+    width: 100%;
+
+    margin: 0;
+
+    border-collapse: collapse;
+
+    table-layout: auto;
+}
+
+.bill-medicine-section .hospital-bill-table th {
+    padding: 10px 8px;
+
+    text-align: left;
+
+    background: #f7f7f7;
+
+    color: #333;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    border: 1px solid #dddddd;
+}
+
+.bill-medicine-section .hospital-bill-table td {
+    padding: 10px 8px;
+
+    color: #555;
+
+    font-size: 12px;
+
+    border: 1px solid #dddddd;
+
+    vertical-align: middle;
+}
+
+
+/* Medicine Name */
+
+.bill-medicine-section .hospital-bill-table td strong {
+    display: block;
+
+    color: #333;
+
+    font-weight: 600;
+}
+
+
+/* Medicine ID */
+
+.bill-medicine-section .hospital-bill-table td small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #999;
+
+    font-size: 10px;
+}
+
+
+/* Price column */
+
+.bill-medicine-section .hospital-bill-table th:last-child,
+.bill-medicine-section .hospital-bill-table td:last-child {
+    text-align: right;
+}
+
+
+/* =================================================
+   MEDICINE LOADING
+   ================================================= */
+
+.bill-medicine-loading {
+    padding: 20px;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 13px;
+
+    border: 1px solid #eeeeee;
+
+    background: #fafafa;
+}
+
+
+/* =================================================
+   NO MEDICINES
+   ================================================= */
+
+.bill-no-medicines {
+    padding: 18px;
+
+    text-align: center;
+
+    color: #777;
+
+    background: #fafafa;
+
+    border: 1px solid #eeeeee;
+
+    font-size: 13px;
+}
+
+
+/* =================================================
+   TOTAL AMOUNT
+   ================================================= */
+
+.bill-total-section {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 15px 25px 0 25px;
+
+    padding: 14px 12px;
+
+    border-top: 2px solid #8b0000;
+
+    border-bottom: 1px solid #dddddd;
+}
+
+.bill-total-section span {
+    color: #333;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.bill-total-section strong {
+    color: #8b0000;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+
+/* =================================================
+   PAYMENT DETAILS
+   ================================================= */
+
+.bill-payment-details {
+    padding: 12px 25px;
+}
+
+.bill-payment-details p {
+    margin: 6px 0;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+.bill-payment-details strong {
+    color: #333;
+}
+
+
+/* =================================================
+   HOSPITAL BILL FOOTER
+   ================================================= */
+
+.hospital-bill-footer {
+    text-align: center;
+
+    padding: 16px 20px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.hospital-bill-footer p {
+    margin: 0 0 5px 0;
+
+    color: #555;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+.hospital-bill-footer span {
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* =================================================
+   MODAL FOOTER BUTTONS
+   ================================================= */
+
+.bill-modal-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 15px 25px;
+
+    background: #fafafa;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+   ========================= */
+
+.bill-modal-btn-close {
+    padding: 8px 18px;
+
+    border: 1px solid #a00000;
+
+    border-radius: 4px;
+
+    background: #ffffff;
+
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.bill-modal-btn-close:hover {
+    background: #a00000;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   PRINT BUTTON
+   ========================= */
+
+.bill-modal-btn-print {
+    padding: 8px 18px;
+
+    border: 1px solid #a00000;
+
+    border-radius: 4px;
+
+    background: #a00000;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.bill-modal-btn-print:hover {
+    background: #800000;
+}
+
+
+/* =================================================
+   RESPONSIVE
+   ================================================= */
+
+@media (max-width: 600px) {
+
+    .billing-controls {
+        justify-content: flex-start;
+    }
+
+    .billing-search-container {
+        width: 100%;
+    }
+
+    .billing-table-container {
+        overflow-x: auto;
+    }
+
+    .billing-table-container table {
+        min-width: 850px;
+    }
+
+    .bill-modal-content {
+        width: 95%;
+    }
+
+    .hospital-bill-header {
+        padding: 18px;
+
+        gap: 12px;
+    }
+
+    .hospital-bill-logo {
+        width: 55px;
+
+        height: 55px;
+    }
+
+    .hospital-bill-info h2 {
+        font-size: 19px;
+    }
+
+    .bill-information {
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 15px 18px;
+    }
+
+    .bill-medicine-section {
+        padding: 15px 18px 5px 18px;
+
+        overflow-x: auto;
+    }
+
+    .bill-medicine-section .hospital-bill-table {
+        min-width: 600px;
+    }
+
+    .bill-total-section {
+        margin: 15px 18px 0 18px;
+    }
+
+    .bill-payment-details {
+        padding: 12px 18px;
+    }
+
+    .bill-modal-footer {
+        padding: 12px 18px;
+    }
+}
+
+
+/* =================================================
+   PRINT
+   ================================================= */
+
+@media print {
+
+    body * {
+        visibility: hidden;
+    }
+
+    .bill-modal-content,
+    .bill-modal-content * {
+        visibility: visible;
+    }
+
+    .bill-modal-content {
+        position: absolute;
+
+        left: 0;
+        top: 0;
+
+        width: 100%;
+
+        max-width: 100%;
+
+        max-height: none;
+
+        overflow: visible;
+
+        box-shadow: none;
+
+        border-radius: 0;
+    }
+
+    .bill-modal-overlay {
+        position: static;
+
+        background: none;
+
+        padding: 0;
+    }
+
+    .bill-modal-footer {
+        display: none;
+    }
+}

@@ -1,0 +1,215 @@
+/* .department-section {
+    padding: 25px;
+}
+
+.department-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.department-header h2 {
+    margin: 0;
+}
+
+.add-department-button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-department-button:hover {
+    background: #1d4ed8;
+}
+
+.department-table-container {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.department-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.department-table-container th,
+.department-table-container td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.department-table-container th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+.department-status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.department-status.active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.department-status.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.department-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-department-button,
+.deactivate-department-button {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-department-button {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.deactivate-department-button {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.edit-department-button:hover {
+    background: #c7d2fe;
+}
+
+.deactivate-department-button:hover {
+    background: #fecaca;
+} */
+
+.department-section {
+    padding: 25px;
+}
+
+.department-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.department-header h2 {
+    margin: 0;
+}
+
+.add-department-button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.add-department-button:hover {
+    background: #1d4ed8;
+}
+
+.department-table-container {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.department-table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.department-table-container th,
+.department-table-container td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.department-table-container th {
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+.department-status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.department-status.active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.department-status.inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.department-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.edit-department-button,
+.deactivate-department-button {
+    border: none;
+    padding: 7px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-department-button {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.deactivate-department-button {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.edit-department-button:hover {
+    background: #c7d2fe;
+}
+
+.deactivate-department-button:hover {
+    background: #fecaca;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.activate-department-button {
+    background-color: #76dc8e;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}

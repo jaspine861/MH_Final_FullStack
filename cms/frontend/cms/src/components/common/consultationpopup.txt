@@ -1,0 +1,1083 @@
+
+import { useEffect, useState } from "react";
+import "./ConsultationPopup.css";
+import { createConsultation } from "../../services/consultationService";
+import { getMedicines } from "../../services/medicineService";
+import { getTests } from "../../services/testService";
+
+function ConsultationPopup({
+    appointment,
+    onClose,
+    onConsultationCompleted
+}) {
+
+    const [medicines, setMedicines] = useState([]);
+    const [tests, setTests] = useState([]);
+
+    const [loadingData, setLoadingData] = useState(true);
+    const [saving, setSaving] = useState(false);
+
+    const [formData, setFormData] = useState({
+        appointment: appointment?.appointment_id || "",
+        patient_id: appointment?.patient_id || "",
+        doctor_id: localStorage.getItem("doctor_id") || "",
+        symptoms: appointment?.reason || "",
+        diagnosis: "",
+        doctor_notes: "",
+        medical_advice: "",
+        consultation_date:
+            new Date().toISOString().split("T")[0],
+        follow_up_date: "",
+        notes: ""
+    });
+
+    /*
+     * Dynamic medicines
+     */
+    const [prescribedMedicines, setPrescribedMedicines] =
+        useState([]);
+
+    /*
+     * Dynamic tests
+     */
+    const [prescribedTests, setPrescribedTests] =
+        useState([]);
+
+
+    /*
+     * Load medicines and tests
+     */
+    useEffect(() => {
+
+        const loadData = async () => {
+
+            try {
+
+                const [medicineData, testData] =
+                    await Promise.all([
+                        getMedicines(),
+                        getTests()
+                    ]);
+
+                console.log(
+                    "MEDICINES:",
+                    medicineData
+                );
+
+                console.log(
+                    "TESTS:",
+                    testData
+                );
+
+                setMedicines(medicineData);
+                setTests(testData);
+
+            } catch (error) {
+
+                console.error(
+                    "Error loading medicines/tests:",
+                    error
+                );
+
+                alert(
+                    "Failed to load medicines and tests."
+                );
+
+            } finally {
+
+                setLoadingData(false);
+
+            }
+        };
+
+        loadData();
+
+    }, []);
+
+
+    /*
+     * Normal form change
+     */
+    const handleChange = (e) => {
+
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+
+    };
+
+
+    /*
+     * Add medicine
+     */
+    const addMedicineRow = () => {
+
+        setPrescribedMedicines((prev) => [
+            ...prev,
+            {
+                medicine_id: "",
+                medicine_name: "",
+                dosage: "",
+                morning: false,
+                afternoon: false,
+                night: false,
+                food_timing: "",
+                duration: ""
+            }
+        ]);
+
+    };
+
+
+    /*
+     * Remove medicine
+     */
+    const removeMedicineRow = (index) => {
+
+        setPrescribedMedicines((prev) =>
+            prev.filter((_, i) => i !== index)
+        );
+
+    };
+
+
+    /*
+     * Change medicine
+     */
+    const handleMedicineChange = (
+        index,
+        field,
+        value
+    ) => {
+
+        setPrescribedMedicines((prev) => {
+
+            const updated = [...prev];
+
+            updated[index] = {
+                ...updated[index],
+                [field]: value
+            };
+
+            return updated;
+
+        });
+
+    };
+
+
+    /*
+     * Select medicine from backend
+     */
+    const handleMedicineSelect = (
+        index,
+        medicineId
+    ) => {
+
+        const selectedMedicine =
+            medicines.find(
+                (medicine) =>
+                    String(medicine.medicine_id) ===
+                    String(medicineId)
+            );
+
+        if (!selectedMedicine) {
+            return;
+        }
+
+        setPrescribedMedicines((prev) => {
+
+            const updated = [...prev];
+
+            updated[index] = {
+                ...updated[index],
+                medicine_id:
+                    selectedMedicine.medicine_id,
+                medicine_name:
+                    selectedMedicine.medicine_name
+            };
+
+            return updated;
+
+        });
+
+    };
+
+
+    /*
+     * Add test
+     */
+    const addTestRow = () => {
+
+        setPrescribedTests((prev) => [
+            ...prev,
+            {
+                test_id: "",
+                test_name: "",
+                status: "pending"
+            }
+        ]);
+
+    };
+
+
+    /*
+     * Remove test
+     */
+    const removeTestRow = (index) => {
+
+        setPrescribedTests((prev) =>
+            prev.filter((_, i) => i !== index)
+        );
+
+    };
+
+
+    /*
+     * Select test
+     */
+    const handleTestSelect = (
+        index,
+        testId
+    ) => {
+
+        const selectedTest =
+            tests.find(
+                (test) =>
+                    String(test.test_id) ===
+                    String(testId)
+            );
+
+        if (!selectedTest) {
+            return;
+        }
+
+        setPrescribedTests((prev) => {
+
+            const updated = [...prev];
+
+            updated[index] = {
+                ...updated[index],
+                test_id:
+                    selectedTest.test_id,
+                test_name:
+                    selectedTest.test_name
+            };
+
+            return updated;
+
+        });
+
+    };
+
+
+    /*
+     * Submit consultation
+     */
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+
+        try {
+
+            setSaving(true);
+
+            const consultationData = {
+
+                appointment:
+                    formData.appointment,
+
+                patient_id:
+                    Number(formData.patient_id),
+
+                doctor_id:
+                    formData.doctor_id,
+
+                symptoms:
+                    formData.symptoms,
+
+                diagnosis:
+                    formData.diagnosis,
+
+                doctor_notes:
+                    formData.doctor_notes,
+
+                medical_advice:
+                    formData.medical_advice,
+
+                consultation_date:
+                    formData.consultation_date,
+
+                follow_up_date:
+                    formData.follow_up_date || null,
+
+                notes:
+                    formData.notes,
+
+                prescribed_medicines:
+                    prescribedMedicines,
+
+                prescribed_tests:
+                    prescribedTests
+            };
+
+
+            console.log(
+                "CONSULTATION DATA:",
+                consultationData
+            );
+
+
+            const data =
+                await createConsultation(
+                    consultationData
+                );
+
+
+            console.log(
+                "CONSULTATION CREATED:",
+                data
+            );
+
+
+            if (onConsultationCompleted) {
+
+                onConsultationCompleted(data);
+
+            }
+
+
+            onClose();
+
+            alert(
+                "Consultation completed successfully!"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "CONSULTATION ERROR:",
+                error.response?.data || error
+            );
+
+            alert(
+                JSON.stringify(
+                    error.response?.data ||
+                    "Failed to save consultation."
+                )
+            );
+
+        } finally {
+
+            setSaving(false);
+
+        }
+
+    };
+
+
+    return (
+        <div className="consultation-overlay">
+
+            <div className="consultation-card">
+
+                {/* Header */}
+
+                <div className="consultation-header">
+
+                    <div>
+
+                        <h2>
+                            Start Consultation
+                        </h2>
+
+                        <p>
+                            Enter consultation details
+                            for the patient
+                        </p>
+
+                    </div>
+
+                    <button
+                        className="close-button"
+                        onClick={onClose}
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                {loadingData ? (
+
+                    <p>
+                        Loading medicines and tests...
+                    </p>
+
+                ) : (
+
+                    <form
+                        onSubmit={handleSubmit}
+                    >
+
+                        <div className="consultation-form">
+
+                            {/* Appointment */}
+
+                            <div className="form-group">
+
+                                <label>
+                                    Appointment ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value={
+                                        formData.appointment
+                                    }
+                                    readOnly
+                                />
+
+                            </div>
+
+
+                            {/* Patient */}
+
+                            <div className="form-group">
+
+                                <label>
+                                    Patient ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    value={`P${String(
+                                        formData.patient_id
+                                    ).padStart(3, "0")}`}
+                                    readOnly
+                                />
+
+                            </div>
+
+
+                            {/* Symptoms */}
+
+                            <div className="form-group full-width">
+
+                                <label>
+                                    Symptoms
+                                </label>
+
+                                <textarea
+                                    name="symptoms"
+                                    value={
+                                        formData.symptoms
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
+                                    rows="3"
+                                    required
+                                />
+
+                            </div>
+
+
+                            {/* Diagnosis */}
+
+                            <div className="form-group full-width">
+
+                                <label>
+                                    Diagnosis
+                                </label>
+
+                                <textarea
+                                    name="diagnosis"
+                                    value={
+                                        formData.diagnosis
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
+                                    rows="3"
+                                    required
+                                />
+
+                            </div>
+
+
+                            {/* Doctor Notes */}
+
+                            <div className="form-group full-width">
+
+                                <label>
+                                    Doctor Notes
+                                </label>
+
+                                <textarea
+                                    name="doctor_notes"
+                                    value={
+                                        formData.doctor_notes
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
+                                    rows="3"
+                                />
+
+                            </div>
+
+
+                            {/* ===================== */}
+                            {/* MEDICINES */}
+                            {/* ===================== */}
+
+                            <div className="full-width">
+
+                                <div className="section-header">
+
+                                    <h3>
+                                        Prescribed Medicines
+                                    </h3>
+
+                                    <button
+                                        type="button"
+                                        className="add-item-button"
+                                        onClick={
+                                            addMedicineRow
+                                        }
+                                    >
+                                        + Add Medicine
+                                    </button>
+
+                                </div>
+
+
+                                {prescribedMedicines.map(
+                                    (
+                                        medicine,
+                                        index
+                                    ) => (
+
+                                        <div
+                                            className="prescription-card"
+                                            key={index}
+                                        >
+
+                                            {/* Medicine */}
+
+                                            <div className="form-group">
+
+                                                <label>
+                                                    Medicine
+                                                </label>
+
+                                                <select
+                                                    value={
+                                                        medicine.medicine_id
+                                                    }
+                                                    onChange={(e) =>
+                                                        handleMedicineSelect(
+                                                            index,
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    required
+                                                >
+
+                                                    <option value="">
+                                                        Select Medicine
+                                                    </option>
+
+                                                    {medicines.map(
+                                                        (item) => (
+
+                                                            <option
+                                                                key={
+                                                                    item.medicine_id
+                                                                }
+                                                                value={
+                                                                    item.medicine_id
+                                                                }
+                                                            >
+                                                                {
+                                                                    item.medicine_name
+                                                                }
+                                                            </option>
+
+                                                        )
+                                                    )}
+
+                                                </select>
+
+                                            </div>
+
+
+                                            {/* Dosage */}
+
+                                            <div className="form-group">
+
+                                                <label>
+                                                    Dosage
+                                                </label>
+
+                                                <input
+                                                    type="text"
+                                                    placeholder="Example: 1 tablet"
+                                                    value={
+                                                        medicine.dosage
+                                                    }
+                                                    onChange={(e) =>
+                                                        handleMedicineChange(
+                                                            index,
+                                                            "dosage",
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    required
+                                                />
+
+                                            </div>
+
+
+                                            {/* Timing */}
+
+                                            <div className="medicine-timing">
+
+                                                <label>
+                                                    Time
+                                                </label>
+
+                                                <div>
+
+                                                    <label>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                medicine.morning
+                                                            }
+                                                            onChange={(e) =>
+                                                                handleMedicineChange(
+                                                                    index,
+                                                                    "morning",
+                                                                    e.target.checked
+                                                                )
+                                                            }
+                                                        />
+                                                        Morning
+                                                    </label>
+
+
+                                                    <label>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                medicine.afternoon
+                                                            }
+                                                            onChange={(e) =>
+                                                                handleMedicineChange(
+                                                                    index,
+                                                                    "afternoon",
+                                                                    e.target.checked
+                                                                )
+                                                            }
+                                                        />
+                                                        Afternoon
+                                                    </label>
+
+
+                                                    <label>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={
+                                                                medicine.night
+                                                            }
+                                                            onChange={(e) =>
+                                                                handleMedicineChange(
+                                                                    index,
+                                                                    "night",
+                                                                    e.target.checked
+                                                                )
+                                                            }
+                                                        />
+                                                        Night
+                                                    </label>
+
+                                                </div>
+
+                                            </div>
+
+
+                                            {/* Food timing */}
+
+                                            <div className="form-group">
+
+                                                <label>
+                                                    Food Timing
+                                                </label>
+
+                                                <select
+                                                    value={
+                                                        medicine.food_timing
+                                                    }
+                                                    onChange={(e) =>
+                                                        handleMedicineChange(
+                                                            index,
+                                                            "food_timing",
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    required
+                                                >
+
+                                                    <option value="">
+                                                        Select
+                                                    </option>
+
+                                                    <option value="Before Food">
+                                                        Before Food
+                                                    </option>
+
+                                                    <option value="After Food">
+                                                        After Food
+                                                    </option>
+
+                                                </select>
+
+                                            </div>
+
+
+                                            {/* Duration */}
+
+                                            <div className="form-group">
+
+                                                <label>
+                                                    Duration
+                                                </label>
+
+                                                <input
+                                                    type="text"
+                                                    placeholder="Example: 5 days"
+                                                    value={
+                                                        medicine.duration
+                                                    }
+                                                    onChange={(e) =>
+                                                        handleMedicineChange(
+                                                            index,
+                                                            "duration",
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    required
+                                                />
+
+                                            </div>
+
+
+                                            {/* Remove */}
+
+                                            <button
+                                                type="button"
+                                                className="remove-item-button"
+                                                onClick={() =>
+                                                    removeMedicineRow(
+                                                        index
+                                                    )
+                                                }
+                                            >
+                                                Remove
+                                            </button>
+
+                                        </div>
+
+                                    )
+                                )}
+
+                            </div>
+
+
+                            {/* ===================== */}
+                            {/* TESTS */}
+                            {/* ===================== */}
+
+                            <div className="full-width">
+
+                                <div className="section-header">
+
+                                    <h3>
+                                        Prescribed Tests
+                                    </h3>
+
+                                    <button
+                                        type="button"
+                                        className="add-item-button"
+                                        onClick={
+                                            addTestRow
+                                        }
+                                    >
+                                        + Add Test
+                                    </button>
+
+                                </div>
+
+
+                                {prescribedTests.map(
+                                    (
+                                        test,
+                                        index
+                                    ) => (
+
+                                        <div
+                                            className="test-prescription-card"
+                                            key={index}
+                                        >
+
+                                            <div className="form-group">
+
+                                                <label>
+                                                    Test
+                                                </label>
+
+                                                <select
+                                                    value={
+                                                        test.test_id
+                                                    }
+                                                    onChange={(e) =>
+                                                        handleTestSelect(
+                                                            index,
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    required
+                                                >
+
+                                                    <option value="">
+                                                        Select Test
+                                                    </option>
+
+                                                    {tests.map(
+                                                        (item) => (
+
+                                                            <option
+                                                                key={
+                                                                    item.test_id
+                                                                }
+                                                                value={
+                                                                    item.test_id
+                                                                }
+                                                            >
+                                                                {
+                                                                    item.test_name
+                                                                }
+                                                            </option>
+
+                                                        )
+                                                    )}
+
+                                                </select>
+
+                                            </div>
+
+
+                                            <div className="form-group">
+
+                                                <label>
+                                                    Status
+                                                </label>
+
+                                                <select
+                                                    value={
+                                                        test.status
+                                                    }
+                                                    onChange={(e) => {
+
+                                                        setPrescribedTests(
+                                                            (prev) => {
+
+                                                                const updated =
+                                                                    [...prev];
+
+                                                                updated[
+                                                                    index
+                                                                ] = {
+
+                                                                    ...updated[
+                                                                        index
+                                                                    ],
+
+                                                                    status:
+                                                                        e.target.value
+                                                                };
+
+                                                                return updated;
+
+                                                            }
+                                                        );
+
+                                                    }}
+                                                >
+
+                                                    <option value="pending">
+                                                        Pending
+                                                    </option>
+
+                                                    <option value="completed">
+                                                        Completed
+                                                    </option>
+
+                                                </select>
+
+                                            </div>
+
+
+                                            <button
+                                                type="button"
+                                                className="remove-item-button"
+                                                onClick={() =>
+                                                    removeTestRow(
+                                                        index
+                                                    )
+                                                }
+                                            >
+                                                Remove
+                                            </button>
+
+                                        </div>
+
+                                    )
+                                )}
+
+                            </div>
+
+
+                            {/* Medical Advice */}
+
+                            <div className="form-group full-width">
+
+                                <label>
+                                    Medical Advice
+                                </label>
+
+                                <textarea
+                                    name="medical_advice"
+                                    value={
+                                        formData.medical_advice
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
+                                    rows="3"
+                                />
+
+                            </div>
+
+
+                            {/* Follow Up */}
+
+                            <div className="form-group">
+
+                                <label>
+                                    Follow-up Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="follow_up_date"
+                                    value={
+                                        formData.follow_up_date
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
+                                />
+
+                            </div>
+
+
+                            {/* Consultation Date */}
+
+                            <div className="form-group">
+
+                                <label>
+                                    Consultation Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="consultation_date"
+                                    value={
+                                        formData.consultation_date
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
+                                    required
+                                />
+
+                            </div>
+
+
+                            {/* Notes */}
+
+                            <div className="form-group full-width">
+
+                                <label>
+                                    Additional Notes
+                                </label>
+
+                                <textarea
+                                    name="notes"
+                                    value={
+                                        formData.notes
+                                    }
+                                    onChange={
+                                        handleChange
+                                    }
+                                    rows="3"
+                                />
+
+                            </div>
+
+                        </div>
+
+
+                        {/* Actions */}
+
+                        <div className="consultation-actions">
+
+                            <button
+                                type="button"
+                                className="cancel-button"
+                                onClick={onClose}
+                                disabled={saving}
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="submit"
+                                className="complete-button"
+                                disabled={saving}
+                            >
+                                {saving
+                                    ? "Saving..."
+                                    : "Complete Consultation"}
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                )}
+
+            </div>
+
+        </div>
+    );
+}
+
+export default ConsultationPopup;

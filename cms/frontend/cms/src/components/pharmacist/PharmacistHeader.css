@@ -1,0 +1,110 @@
+.pharmacist-header {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    background: white;
+
+    border-bottom: 1px solid #eee;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   LEFT
+   ========================= */
+
+.pharmacist-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pharmacist-hospital-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.pharmacist-header-left h2 {
+    margin: 0;
+
+    font-size: 20px;
+    color: #a00000;
+}
+
+
+/* =========================
+   RIGHT
+   ========================= */
+
+.pharmacist-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* =========================
+   LOGOUT
+   ========================= */
+
+.pharmacist-logout-button {
+    background: none;
+    border: none;
+
+    color: #a00000;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    padding: 8px 5px;
+
+    transition: 0.2s;
+}
+
+.pharmacist-logout-button:hover {
+    color: #7d0000;
+}
+
+
+/* =========================
+   DIVIDER
+   ========================= */
+
+.pharmacist-header-divider {
+    height: 30px;
+    width: 1px;
+
+    background: #ddd;
+
+    margin: 0 8px;
+}
+
+
+/* =========================
+   PROFILE
+   ========================= */
+
+.pharmacist-profile-pic {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.pharmacist-user-name {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #333;
+}

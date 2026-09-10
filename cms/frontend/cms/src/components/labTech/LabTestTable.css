@@ -1,0 +1,240 @@
+.lab-test-section {
+    margin-top: 25px;
+    width: 100%;
+}
+
+
+/* Controls */
+
+.lab-test-controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+
+.lab-test-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+.lab-test-subtitle {
+    margin: 5px 0 0;
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* Search */
+
+.lab-test-search-container {
+    width: 280px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+}
+
+
+.lab-test-search-container:focus-within {
+    border-color: #a00000;
+}
+
+
+.lab-test-search-icon {
+    font-size: 20px;
+    color: #777;
+    margin-right: 8px;
+}
+
+
+.lab-test-search-container input {
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+.lab-test-search-container input::placeholder {
+    color: #999;
+}
+
+
+/* Table */
+
+.lab-test-table-container {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.lab-test-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.lab-test-table-container th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.lab-test-table-container td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.lab-test-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* Test ID */
+
+.lab-test-id {
+    font-weight: 600;
+    color: #a00000 !important;
+}
+
+
+/* Test Name */
+
+.lab-test-name {
+    font-weight: 500;
+    color: #333 !important;
+}
+
+
+/* Price */
+
+.lab-test-price {
+    font-weight: 600;
+    color: #333 !important;
+}
+
+
+/* Status */
+
+.lab-test-status {
+    display: inline-block;
+
+    padding: 5px 11px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+/* Available */
+
+.lab-test-status.available {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+
+/* Maintenance */
+
+.lab-test-status.maintenance {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* Loading */
+
+.lab-test-loading {
+    background: white;
+
+    padding: 30px;
+
+    text-align: center;
+
+    border-radius: 8px;
+
+    color: #666;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Empty */
+
+.lab-test-empty {
+    text-align: center !important;
+
+    padding: 30px !important;
+
+    color: #777 !important;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .lab-test-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .lab-test-search-container {
+        width: 100%;
+    }
+
+    .lab-test-table-container {
+        overflow-x: auto;
+    }
+
+    .lab-test-table-container table {
+        min-width: 750px;
+    }
+}

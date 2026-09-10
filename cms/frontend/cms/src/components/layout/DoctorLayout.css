@@ -1,0 +1,63 @@
+/* .doctor-layout {
+    min-height: 100vh;
+    background-color: #f7f8fa;
+}
+
+.doctor-layout-body {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+.doctor-main-content {
+    flex: 1;
+    padding: 25px;
+    min-width: 0;
+    box-sizing: border-box;
+} */
+
+.doctor-layout {
+    min-height: 100vh;
+    background-color: #f7f8fa;
+}
+
+
+/* Header stays fixed at the top */
+.doctor-layout > header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 1000;
+}
+
+
+/* Body */
+.doctor-layout-body {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* Sidebar stays fixed */
+.doctor-layout-body > *:first-child {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    z-index: 999;
+}
+
+
+/* Main content */
+.doctor-main-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 25px;
+    padding-top: 95px;
+    min-width: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+}

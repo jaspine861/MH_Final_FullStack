@@ -1,0 +1,155 @@
+.edit-doctor-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.edit-doctor-card {
+    width: 600px;
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 25px 30px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.edit-doctor-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.edit-doctor-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+    color: #333;
+}
+
+.close-button {
+    border: none;
+    background: none;
+
+    font-size: 28px;
+    color: #777;
+
+    cursor: pointer;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #a00000;
+}
+
+.form-group input:disabled {
+    background: #f5f5f5;
+    color: #777;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.cancel-button,
+.save-button {
+    padding: 10px 20px;
+
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: white;
+
+    border: 1px solid #a00000;
+
+    color: #a00000;
+}
+
+.save-button {
+    background: #a00000;
+
+    border: 1px solid #a00000;
+
+    color: white;
+}
+
+.save-button:hover {
+    background: #7d0000;
+}

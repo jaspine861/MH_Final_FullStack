@@ -1,0 +1,297 @@
+.test-section {
+    margin-top: 25px;
+}
+
+
+/* ============================= */
+/* Controls */
+/* ============================= */
+
+.test-controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+
+/* ============================= */
+/* Filter */
+/* ============================= */
+
+.test-filter-container {
+    position: relative;
+}
+
+
+.test-filter-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 18px;
+
+    background: white;
+    color: #a00000;
+
+    border: 1px solid #a00000;
+    border-radius: 5px;
+
+    font-size: 14px;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.test-filter-button:hover,
+.test-filter-button.test-filter-active {
+    background: #a00000;
+    color: white;
+}
+
+
+/* Filter dropdown */
+
+.test-filter-options {
+    position: absolute;
+    top: 45px;
+    left: 0;
+
+    width: 150px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+
+    z-index: 10;
+    overflow: hidden;
+}
+
+
+.test-filter-option {
+    width: 100%;
+
+    padding: 10px 15px;
+
+    border: none;
+    background: white;
+
+    text-align: left;
+
+    font-size: 14px;
+    color: #333;
+
+    cursor: pointer;
+}
+
+
+.test-filter-option:hover,
+.test-filter-option.selected {
+    background: #a00000;
+    color: white;
+}
+
+
+/* ============================= */
+/* Search */
+/* ============================= */
+
+.test-search-container {
+    width: 280px;
+
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #ddd;
+    border-radius: 5px;
+
+    padding: 0 12px;
+
+    box-sizing: border-box;
+}
+
+
+.test-search-container:focus-within {
+    border-color: #a00000;
+}
+
+
+.test-search-icon {
+    font-size: 20px;
+    color: #777;
+
+    margin-right: 8px;
+}
+
+
+.test-search-container input {
+    width: 100%;
+
+    padding: 10px 0;
+
+    border: none;
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+.test-search-container input::placeholder {
+    color: #999;
+}
+
+
+/* ============================= */
+/* Table */
+/* ============================= */
+
+.test-table-container {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+.test-table-container table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+
+.test-table-container th {
+    padding: 15px;
+
+    text-align: left;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #333;
+
+    background: #fafafa;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.test-table-container td {
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    color: #555;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.test-table-container tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ============================= */
+/* Patient */
+/* ============================= */
+
+.patient-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.patient-info > span:first-child {
+    font-weight: 500;
+    color: #333;
+}
+
+
+.patient-name {
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* ============================= */
+/* Status */
+/* ============================= */
+
+.test-status {
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+
+/* Pending */
+
+.test-status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* Completed */
+
+.test-status.completed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+
+/* ============================= */
+/* Action */
+/* ============================= */
+
+.test-action-button {
+    padding: 7px 15px;
+
+    border: 1px solid #a00000;
+    border-radius: 4px;
+
+    background: white;
+    color: #a00000;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+
+.test-action-button:hover:not(:disabled) {
+    background: #a00000;
+    color: white;
+}
+
+
+/* Completed button */
+
+.test-action-button.completed {
+    border-color: #0f5132;
+
+    background: #d1e7dd;
+
+    color: #0f5132;
+
+    cursor: default;
+}

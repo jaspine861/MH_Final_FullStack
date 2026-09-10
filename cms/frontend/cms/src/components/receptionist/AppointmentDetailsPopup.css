@@ -1,0 +1,245 @@
+.appointment-details-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 3000;
+}
+
+
+.appointment-details-popup {
+    width: 650px;
+
+    max-width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Header */
+
+.appointment-details-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding: 22px 28px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.appointment-details-header h2 {
+    margin: 0;
+
+    color: #333;
+
+    font-size: 20px;
+}
+
+.appointment-details-header p {
+    margin: 5px 0 0;
+
+    color: #a00000;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.appointment-details-close {
+    border: none;
+
+    background: transparent;
+
+    color: #777;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.appointment-details-close:hover {
+    color: #a00000;
+}
+
+
+/* Section */
+
+.appointment-details-section {
+    padding: 20px 28px;
+
+    border-bottom: 1px solid #eee;
+}
+
+.appointment-details-section h3 {
+    margin: 0 0 18px;
+
+    color: #333;
+
+    font-size: 15px;
+}
+
+
+/* Grid */
+
+.appointment-details-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px 30px;
+}
+
+.appointment-details-grid div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.appointment-details-grid label {
+    color: #888;
+
+    font-size: 11px;
+}
+
+.appointment-details-grid strong {
+    color: #333;
+
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* Status */
+
+.appointment-detail-status {
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: 15px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    background: #f5f5f5;
+
+    color: #555;
+}
+
+.appointment-detail-status.booked {
+    background: #fff3cd;
+
+    color: #856404;
+}
+
+.appointment-detail-status.consulted {
+    background: #d1e7dd;
+
+    color: #0f5132;
+}
+
+.appointment-detail-status.cancelled {
+    background: #f8d7da;
+
+    color: #842029;
+}
+
+
+/* Reason */
+
+.appointment-reason {
+    background: #fafafa;
+
+    border: 1px solid #eee;
+
+    border-radius: 6px;
+
+    padding: 12px 14px;
+
+    color: #555;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* Footer */
+
+.appointment-details-footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding: 16px 28px;
+}
+
+.appointment-details-footer button {
+    padding: 9px 20px;
+
+    border: 1px solid #a00000;
+
+    border-radius: 5px;
+
+    background: #a00000;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+.appointment-details-footer button:hover {
+    background: #820000;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .appointment-details-popup {
+        width: 100%;
+    }
+
+    .appointment-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .appointment-details-header,
+    .appointment-details-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
